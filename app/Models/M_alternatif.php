@@ -9,12 +9,14 @@ class M_alternatif extends Model
     protected $table      = 'alternatif';
     protected $primaryKey = 'id_alternatif';
     // protected $useTimestamps = true;
-    protected $allowedFields = ['nama', 'jenis_kelamin', 'alamat', 'ipk', 'pendidikan', 'pengalaman', 'tkd', 'wawancara'];
+    protected $allowedFields = ['id_data', 'ipk', 'pendidikan', 'tkd', 'wawancara'];
 
-    // public function join_alternatif() {
-    //     $query = $this->db->table('alternatif')
-    //     ->join('bobot', 'alternatif.id_bobot = bobot.id_bobot')
-    //     ->get();
-    //     return $query;
-    // }
+    public function join_alternatif()
+    {
+        $query = $this->db->table('alternatif')
+            ->join('data', 'alternatif.id_data = data.id_data')
+            ->where('data.id_data = alternatif.id_data')
+            ->get();
+        return $query->getResultArray();
+    }
 }

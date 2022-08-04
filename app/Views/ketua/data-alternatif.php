@@ -174,6 +174,10 @@
                     <div class="card" style="margin-bottom: 70px;">
                         <div class="card-header">
                             <h5 class="card-title m-0">Tabel Data Alternatif</h5>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -189,14 +193,16 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($alternatif as $alt) { ?>
+                                    foreach ($join_alternatif as $alt) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $alt['nama'] ?></td>
                                             <td><?= $alt['alamat'] ?></td>
                                             <td><?= $alt['jenis_kelamin'] ?></td>
+                                            
                                         </tr>
-                                    <?php } ?>
+
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

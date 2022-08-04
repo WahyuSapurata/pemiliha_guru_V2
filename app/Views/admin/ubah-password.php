@@ -114,29 +114,29 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/pengumuman_desa') ?>" class="nav-link">
-                                <i class="nav-icon fa-solid fa-id-card-clip"></i>
+                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Data Calon Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kriteria') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-database"></i>
                                 <p>
-                                    pengumuman Desa
+                                    Data Kriteria
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/penduduk') ?>" class="nav-link">
-                                <i class="nav-icon fa-solid fa-id-card"></i>
-                                <p>Data Penduduk</p>
+                            <a href="<?= base_url('admin/alternatif') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-server"></i>
+                                <p>Data Alternatif</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/artikel') ?>" class="nav-link">
-                                <i class="nav-icon fa-solid fa-newspaper"></i>
-                                <p>Artikel</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/pengumuman') ?>" class="nav-link">
-                                <i class="nav-icon fa-solid fa-bullhorn"></i>
-                                <p>Pengumuman</p>
+                            <a href="<?= base_url('admin/hasil') ?>" class="nav-link">
+                                <i class="fas fa-vote-yea nav-icon"></i>
+                                <p>Hasil Seleksi</p>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -168,30 +168,40 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="alert" style="margin-top: 70px;" role="alert">
-                        <h3 class="m-0"><i class="fas fa-database"></i> Kriteria</h3>
+                        <h3 class="m-0"><i class="fa-solid fa-chalkboard-user"></i> Data Calon Guru</h3>
                     </div>
 
                     <div class="card" style="margin-bottom: 70px;">
                         <div class="card-header">
-                            <h5 class="card-title m-0">Tabel Data Kriteria</h5>
+                            <h5 class="card-title m-0">Tabel Data Guru</h5>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover text-center">
+                            <table id="example2" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Nama</th>
+                                        <th>Alamat</th>
+                                        <th>Jenis Kelamin</th>
                                         <th>Dokumen</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
                                     foreach ($data as $dt) { ?>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $dt['nama'] ?></td>
-                                        <td><a href="<?= base_url('uploads/dokumen/' . $dt['dokumen']) ?>" target="_blank"><i class="fas fa-file-pdf text-danger" style="font-size: 20px;"></i></a></td>
-                                    </tr>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $dt['nama'] ?></td>
+                                            <td><?= $dt['alamat'] ?></td>
+                                            <td><?= $dt['jenis_kelamin'] ?></td>
+                                            <td><a href="<?= base_url('uploads/dokumen/' . $dt['dokumen']) ?>" target="_blank"><i class="fas fa-file-pdf text-danger" style="font-size: 20px;"></i></a></td>
+                                            
+                                        </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>

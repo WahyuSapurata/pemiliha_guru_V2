@@ -123,7 +123,10 @@ class Admin extends BaseController
         }
         $data['alternatif'] = $this->M_alternatif->findAll();
         $data['kriteria'] = $this->M_kriteria->findAll();
-        // dd($data['kriteria']);
+        $data['data'] = $this->M_data->findAll();
+        // dd($data['data']);
+        $data['join_alternatif'] = $this->M_alternatif->join_alternatif();
+        // dd($data['join_alternatif']);
         $data['title'] = 'Data Alternatif';
         echo view('admin/data-alternatif', $data);
         echo view('admin/tambah-data/tambah-alternatif', $data);
@@ -131,12 +134,9 @@ class Admin extends BaseController
     public function tambah_alternatif()
     {
         $this->M_alternatif->save([
-            'nama' => $this->request->getVar('nama'),
-            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'alamat' => $this->request->getVar('alamat'),
+            'id_data' => $this->request->getVar('id_data'),
             'ipk' => $this->request->getVar('ipk'),
             'pendidikan' => $this->request->getVar('pendidikan'),
-            'pengalaman' => $this->request->getVar('pengalaman'),
             'tkd' => $this->request->getVar('tkd'),
             'wawancara' => $this->request->getVar('wawancara'),
         ]);
@@ -153,12 +153,9 @@ class Admin extends BaseController
     {
         $this->M_alternatif->save([
             'id_alternatif' => $id_alternatif,
-            'nama' => $this->request->getVar('nama'),
-            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'alamat' => $this->request->getVar('alamat'),
+            'id_data' => $this->request->getVar('id_data'),
             'ipk' => $this->request->getVar('ipk'),
             'pendidikan' => $this->request->getVar('pendidikan'),
-            'pengalaman' => $this->request->getVar('pengalaman'),
             'tkd' => $this->request->getVar('tkd'),
             'wawancara' => $this->request->getVar('wawancara'),
         ]);
@@ -244,7 +241,9 @@ class Admin extends BaseController
         $data['alternatif'] = $this->M_alternatif->findAll();
         $data['kriteria'] = $this->M_kriteria->findAll();
 
-        $alternatif = $this->M_alternatif->findAll();
+        $data['join_alternatif'] = $this->M_alternatif->join_alternatif();
+
+        $alternatif = $this->M_alternatif->join_alternatif();
         $kriteria = $this->M_kriteria->findAll();
         // dd($alternatif);
         // dd($kriteria);
@@ -262,7 +261,6 @@ class Admin extends BaseController
         $nilai_alt = [
             'ipk',
             'pendidikan',
-            'pengalaman',
             'tkd',
             'wawancara'
         ];
@@ -318,7 +316,7 @@ class Admin extends BaseController
             'userfile' => [
                 'uploaded[userfile]',
                 'mime_in[userfile,application/pdf,application/zip,application/msword,application/x-tar]',
-                'max_size[userfile,10000]',
+                'max_size[userfile,5000]',
             ],
         ]);
         if ($periksa) {
@@ -328,6 +326,8 @@ class Admin extends BaseController
 
             $this->M_data->save([
                 'nama' => $this->request->getVar('nama'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+                'alamat' => $this->request->getVar('alamat'),
                 'dokumen' => $newName,
             ]);
 
@@ -367,6 +367,8 @@ class Admin extends BaseController
             $this->M_data->save([
                 'id_data' => $id_data,
                 'nama' => $this->request->getVar('nama'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+                'alamat' => $this->request->getVar('alamat'),
                 'dokumen' => $newName,
             ]);
 

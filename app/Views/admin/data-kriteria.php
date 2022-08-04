@@ -113,6 +113,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                                <p>Data Calon Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/kriteria') ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
@@ -124,12 +130,6 @@
                             <a href="<?= base_url('admin/alternatif') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-server"></i>
                                 <p>Data Alternatif</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Data Calon Guru</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -230,7 +230,7 @@
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label>Nama Kriteria</label>
-                                                                <input type="text" class="form-control" readonly name="nama_kriteria" required="" id="nama_kriteria" value="<?= $krt['nama_kriteria']; ?>">
+                                                                <input type="text" class="form-control" name="nama_kriteria" required="" id="nama_kriteria" value="<?= $krt['nama_kriteria']; ?>">
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label>Atribut</label>

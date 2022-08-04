@@ -53,6 +53,7 @@ class Ketua extends BaseController
             return redirect()->to(base_url('home/blocked_ketua'));
         }
         $data['alternatif'] = $this->M_alternatif->findAll();
+        $data['join_alternatif'] = $this->M_alternatif->join_alternatif();
         $data['title'] = 'Data Alternatif';
         return view('ketua/data-alternatif', $data);
     }
@@ -133,8 +134,12 @@ class Ketua extends BaseController
         $data['alternatif'] = $this->M_alternatif->findAll();
         $data['kriteria'] = $this->M_kriteria->findAll();
 
-        $alternatif = $this->M_alternatif->findAll();
+        $data['join_alternatif'] = $this->M_alternatif->join_alternatif();
+
+        $alternatif = $this->M_alternatif->join_alternatif();
         $kriteria = $this->M_kriteria->findAll();
+        // dd($alternatif);
+        // dd($kriteria);
 
         // mencari nilai s
         $ktiteria_kalkulasi = [];
@@ -147,12 +152,12 @@ class Ketua extends BaseController
             //   pow($alternatif[$index]['wawancara'], $krt['bobot_kalkulasi']);
         }
         $nilai_alt = [
-            'pendidikan',
             'ipk',
-            'pengalaman',
+            'pendidikan',
             'tkd',
             'wawancara'
         ];
+        // dd($nilai_alt);
         $jum_s = [];
         $jum_v = 0;
         for ($index = 0; $index < count($alternatif); $index++) {
@@ -182,6 +187,8 @@ class Ketua extends BaseController
         $data['nilai_s'] = $jum_s;
         $data['title'] = 'Hasil Seleksi';
         // $data['hasilSaw'] = $this->saw();
+        // <td><?= $hasilSaw[$i]['result'] ?</td>
+        // dd($data['hasilSaw']);
         return view('ketua/hasil-seleksi', $data);
     }
 

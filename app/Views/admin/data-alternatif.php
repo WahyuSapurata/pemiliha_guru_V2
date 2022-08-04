@@ -113,6 +113,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Data Calon Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/kriteria') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
@@ -124,12 +130,6 @@
                             <a href="<?= base_url('admin/alternatif') ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-server"></i>
                                 <p>Data Alternatif</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-user"></i>
-                                <p>Data Calon Guru</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -198,7 +198,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($alternatif as $alt) : ?>
+                                    foreach ($join_alternatif as $alt) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $alt['nama'] ?></td>
@@ -228,35 +228,27 @@
                                                             <?= csrf_field(); ?>
                                                             <div class="form-group">
                                                                 <label>Nama</label>
-                                                                <input type="text" name="nama" class="form-control" value="<?= $alt['nama'] ?>" required>
+                                                                <select name="id_data" id="id_data" class="form-control">
+                                                                    <option value="">--pilih nama calon--</option>
+                                                                    <?php foreach ($data as $dta) : ?>
+                                                                        <option value="<?= $dta['id_data'] ?>" <?php if ($dta['id_data'] == $alt['id_data']) : ?> selected <?php endif ?>><?= $dta['nama'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                </select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Jenis Kelamin</label><br>
-                                                                <input type="radio" name="jenis_kelamin" required value="Laki-laki" <?= $alt['jenis_kelamin'] == "Laki-laki" ? 'checked' : "" ?>> Laki-laki<br>
-                                                                <input type="radio" name="jenis_kelamin" required value="Perempuan" <?= $alt['jenis_kelamin'] == "Perempuan" ? 'checked' : "" ?>> Perempuan<br>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Alamat</label>
-                                                                <input type="text" name="alamat" class="form-control" value="<?= $alt['alamat'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Ipk</label>
+                                                                <label><?= $kriteria[0]['nama_kriteria'] ?></label>
                                                                 <input type="text" name="ipk" class="form-control" value="<?= $alt['ipk'] ?>" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Pendidikan</label>
+                                                                <label><?= $kriteria[1]['nama_kriteria'] ?></label>
                                                                 <input type="text" name="pendidikan" class="form-control" value="<?= $alt['pendidikan'] ?>" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Pengalaman</label>
-                                                                <input type="text" name="pengalaman" class="form-control" value="<?= $alt['pengalaman'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Test Kemampuan Dasar</label>
+                                                                <label><?= $kriteria[2]['nama_kriteria'] ?></label>
                                                                 <input type="text" name="tkd" class="form-control" value="<?= $alt['tkd'] ?>" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Wawancara</label>
+                                                                <label><?= $kriteria[3]['nama_kriteria'] ?></label>
                                                                 <input type="text" name="wawancara" class="form-control" value="<?= $alt['wawancara'] ?>" required>
                                                             </div>
                                                             <div class="modal-footer">

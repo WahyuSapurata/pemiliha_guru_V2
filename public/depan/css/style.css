@@ -200,7 +200,8 @@ h6 {
 }
 
 .s-jumbotron {
-  height: 88.1vh;
+  /* height: 88.1vh; */
+  height: auto;
 }
 
 .content-carousel {

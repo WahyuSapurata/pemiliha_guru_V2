@@ -13,35 +13,27 @@
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="nama" class="form-control" required>
+                        <select name="id_data" id="id_data" class="form-control">
+                            <option value="">--pilih nama calon--</option>
+                            <?php foreach ($data as $dta) : ?>
+                                <option value="<?= $dta['id_data'] ?>"><?= $dta['nama'] ?></option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Jenis Kelamin</label><br>
-                        <input type="radio" name="jenis_kelamin" required value="Laki-laki"> Laki-laki<br>
-                        <input type="radio" name="jenis_kelamin" required value="Perempuan"> Perempuan<br>
-                    </div>
-                    <div class="form-group">
-                        <label>Alamat</label>
-                        <input type="text" name="alamat" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Ipk</label>
+                        <label><?= $kriteria[0]['nama_kriteria'] ?></label>
                         <input type="text" name="ipk" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Pendidikan</label>
+                        <label><?= $kriteria[1]['nama_kriteria'] ?></label>
                         <input type="text" name="pendidikan" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Pengalaman</label>
-                        <input type="text" name="pengalaman" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Test Kemampuan Dasar</label>
+                        <label><?= $kriteria[2]['nama_kriteria'] ?></label>
                         <input type="text" name="tkd" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Wawancara</label>
+                        <label><?= $kriteria[3]['nama_kriteria'] ?></label>
                         <input type="text" name="wawancara" class="form-control" required>
                     </div>
                     <div class="modal-footer">

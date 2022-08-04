@@ -182,23 +182,21 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nama</th>
-                                        <th>Pendidikan</th>
-                                        <th>IPK</th>
-                                        <th>Pengalaman</th>
-                                        <th>Test Kempampuan Dasar</th>
-                                        <th>Test Wawancara</th>
+                                        <th><?= $kriteria[0]['nama_kriteria'] ?></th>
+                                        <th><?= $kriteria[1]['nama_kriteria'] ?></th>
+                                        <th><?= $kriteria[2]['nama_kriteria'] ?></th>
+                                        <th><?= $kriteria[3]['nama_kriteria'] ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($alternatif as $alt) : ?>
+                                    foreach ($join_alternatif as $alt) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $alt['nama'] ?></td>
-                                            <td><?= $alt['pendidikan'] ?></td>
                                             <td><?= $alt['ipk'] ?></td>
-                                            <td><?= $alt['pengalaman'] ?></td>
+                                            <td><?= $alt['pendidikan'] ?></td>
                                             <td><?= $alt['tkd'] ?></td>
                                             <td><?= $alt['wawancara'] ?></td>
                                         </tr>
@@ -217,11 +215,10 @@
                             <table id="example1" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th>K01</th>
-                                        <th>K02</th>
-                                        <th>K03</th>
-                                        <th>K04</th>
-                                        <th>K05</th>
+                                        <th><?= $kriteria[0]['kode'] ?></th>
+                                        <th><?= $kriteria[1]['kode'] ?></th>
+                                        <th><?= $kriteria[2]['kode'] ?></th>
+                                        <th><?= $kriteria[3]['kode'] ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -275,6 +272,7 @@
                                         <th>#</th>
                                         <th>Nama</th>
                                         <th>Nilai WP</th>
+                                        <!-- <th>Nilai SAW</th> -->
                                         <th>Rangking</th>
                                     </tr>
                                 </thead>

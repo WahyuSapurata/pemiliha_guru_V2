@@ -113,6 +113,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                                <p>Data Calon Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/kriteria') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
@@ -124,12 +130,6 @@
                             <a href="<?= base_url('admin/alternatif') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-server"></i>
                                 <p>Data Alternatif</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link active">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Data Calon Guru</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -190,6 +190,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nama</th>
+                                        <th>Alamat</th>
+                                        <th>Jenis Kelamin</th>
                                         <th>Dokumen</th>
                                         <th style="width: 125px;">Action</th>
                                     </tr>
@@ -200,6 +202,8 @@
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $dt['nama'] ?></td>
+                                            <td><?= $dt['alamat'] ?></td>
+                                            <td><?= $dt['jenis_kelamin'] ?></td>
                                             <td><a href="<?= base_url('uploads/dokumen/' . $dt['dokumen']) ?>" target="_blank"><i class="fas fa-file-pdf text-danger" style="font-size: 20px;"></i></a></td>
                                             <td>
                                                 <form action="<?= base_url() ?>/admin/hapus_data/<?= $dt['id_data'] ?>" method="post">

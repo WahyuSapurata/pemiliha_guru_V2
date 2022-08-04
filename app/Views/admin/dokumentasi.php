@@ -113,6 +113,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                                <p>Data Calon Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/kriteria') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>
@@ -124,12 +130,6 @@
                             <a href="<?= base_url('admin/alternatif') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-server"></i>
                                 <p>Data Alternatif</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Data Calon Guru</p>
                             </a>
                         </li>
                         <li class="nav-item">

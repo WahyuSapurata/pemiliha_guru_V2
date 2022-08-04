@@ -16,8 +16,18 @@
                         <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" name="alamat" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Kelamin</label><br>
+                        <input type="radio" name="jenis_kelamin" required value="Laki-laki"> Laki-laki<br>
+                        <input type="radio" name="jenis_kelamin" required value="Perempuan"> Perempuan<br>
+                    </div>
+                    <div class="form-group">
                         <label>Dokumen</label>
                         <input type="file" name="userfile" required>
+                        <span style="font-size: 12px; color: red; font-style: italic;">Dokumen max 5mb</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
