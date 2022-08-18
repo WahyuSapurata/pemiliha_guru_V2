@@ -175,9 +175,9 @@
                         <div class="card-header">
                             <h5 class="card-title m-0">Tabel Data Guru</h5>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+                            <!-- <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -200,7 +200,7 @@
                                             <td><?= $dt['alamat'] ?></td>
                                             <td><?= $dt['jenis_kelamin'] ?></td>
                                             <td><a href="<?= base_url('uploads/dokumen/' . $dt['dokumen']) ?>" target="_blank"><i class="fas fa-file-pdf text-danger" style="font-size: 20px;"></i></a></td>
-                                            
+
                                         </tr>
                                     <?php } ?>
                                 </tbody>

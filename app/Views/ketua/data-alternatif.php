@@ -175,9 +175,9 @@
                         <div class="card-header">
                             <h5 class="card-title m-0">Tabel Data Alternatif</h5>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+                            <!-- <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -199,7 +199,7 @@
                                             <td><?= $alt['nama'] ?></td>
                                             <td><?= $alt['alamat'] ?></td>
                                             <td><?= $alt['jenis_kelamin'] ?></td>
-                                            
+
                                         </tr>
 
                                     <?php endforeach; ?>

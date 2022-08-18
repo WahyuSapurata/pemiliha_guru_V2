@@ -189,6 +189,16 @@ class Ketua extends BaseController
         // $data['hasilSaw'] = $this->saw();
         // <td><?= $hasilSaw[$i]['result'] ?</td>
         // dd($data['hasilSaw']);
+        date_default_timezone_set('Asia/Makassar');
+        $tanggal = date('Y-m-d');
+        // dd($tanggal);
+        foreach ($alternatif as $alt) {
+            if ($tanggal > $alt['tanggal']) {
+                $this->M_alternatif
+                    ->set(['status' => 1])
+                    ->update();
+            }
+        }
         return view('ketua/hasil-seleksi', $data);
     }
 

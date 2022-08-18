@@ -114,7 +114,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('admin/data_guru') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>Data Calon Guru</p>
                             </a>
                         </li>
@@ -221,7 +221,7 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel">Edit Gambar</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Edit Data</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -233,9 +233,18 @@
                                                                 <input type="text" class="form-control" name="nama" value="<?= $dt['nama'] ?>" required>
                                                             </div>
                                                             <div class="form-group">
+                                                                <label>Alamat</label>
+                                                                <input type="text" name="alamat" class="form-control" value="<?= $dt['alamat'] ?>" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Jenis Kelamin</label><br>
+                                                                <input type="radio" name="jenis_kelamin" value="Laki-laki" <?= $dt['jenis_kelamin'] == "Laki-laki" ? 'checked' : "" ?>>Laki-laki<br>
+                                                                <input type="radio" name="jenis_kelamin" value="Perempuan" <?= $dt['jenis_kelamin'] == "Perempuan" ? 'checked' : "" ?>> Perempuan<br>
+                                                            </div>
+                                                            <div class="form-group">
                                                                 <label>Dokumen</label>
                                                                 <div class="custom-file">
-                                                                    <input type="file" class="custom-file-input" id="userfile" value="<?= $dt['dokumen'] ?>" required name="userfile">
+                                                                    <input type="file" class="custom-file-input" id="userfile" value="<?= $dt['dokumen'] ?>" name="userfile">
                                                                     <label class="custom-file-label" for="userfile"><?= $dt['dokumen'] ?></label>
                                                                 </div>
                                                             </div>

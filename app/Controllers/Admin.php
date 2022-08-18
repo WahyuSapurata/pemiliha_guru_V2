@@ -133,12 +133,18 @@ class Admin extends BaseController
     }
     public function tambah_alternatif()
     {
+
+        date_default_timezone_set('Asia/Makassar');
+        $tanggal = strtotime(date("Y-m-d"));
+        $tambah_tanggal = date('Y-m-d', strtotime("+30 day", $tanggal));
+
         $this->M_alternatif->save([
             'id_data' => $this->request->getVar('id_data'),
             'ipk' => $this->request->getVar('ipk'),
             'pendidikan' => $this->request->getVar('pendidikan'),
             'tkd' => $this->request->getVar('tkd'),
             'wawancara' => $this->request->getVar('wawancara'),
+            'tanggal' => $tambah_tanggal
         ]);
         session()->setFlashdata("success", "Data Berhasil di Tambah.");
         return redirect()->to(base_url('admin/alternatif'));
@@ -245,7 +251,7 @@ class Admin extends BaseController
 
         $alternatif = $this->M_alternatif->join_alternatif();
         $kriteria = $this->M_kriteria->findAll();
-        // dd($alternatif);
+        // dd($alternatif);    
         // dd($kriteria);
 
         // mencari nilai s
@@ -296,6 +302,18 @@ class Admin extends BaseController
         // $data['hasilSaw'] = $this->saw();
         // <td><?= $hasilSaw[$i]['result'] ?</td>
         // dd($data['hasilSaw']);
+        date_default_timezone_set('Asia/Makassar');
+        $tanggal = date('Y-m-d');
+        // dd($tanggal);
+        foreach ($alternatif as $alt) {
+            if ($tanggal > $alt['tanggal']) {
+                $this->M_alternatif
+                    ->set(['status' => 1])
+                    ->update();
+            }
+        }
+        // dd($minggu_lalu);
+        // if ()
         return view('admin/hasil-seleksi', $data);
     }
 
@@ -375,7 +393,14 @@ class Admin extends BaseController
             session()->setFlashdata("success", "Dokumen berhasil di edit.");
             return redirect()->to(base_url('admin/data_guru'));
         } else {
-            session()->setFlashdata("error", "Dokumen gagal di edit.");
+            $this->M_data->save([
+                'id_data' => $id_data,
+                'nama' => $this->request->getVar('nama'),
+                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+                'alamat' => $this->request->getVar('alamat'),
+            ]);
+
+            session()->setFlashdata("success", "Dokumen berhasil di edit.");
             return redirect()->to(base_url('admin/data_guru'));
         }
     }
