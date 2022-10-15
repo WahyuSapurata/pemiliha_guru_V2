@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label>Dokumen</label>
                         <input type="file" name="userfile" required>
-                        <span style="font-size: 12px; color: red; font-style: italic;">Dokumen max 5mb</span>
+                        <span style="display: block; font-size: 12px; color: red; font-style: italic;">Dokumen max 5mb</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

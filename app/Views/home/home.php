@@ -33,6 +33,12 @@
   <!-- animation -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url() ?>/plugins/toastr/toastr.min.css">
+
+
 
 </head>
 
@@ -77,6 +83,11 @@
             <li><a href="<?= base_url() ?>">BERANDA</a></li>
             <li><a href="<?= base_url('login_admin/index') ?>">LOGIN ADMIN</a></li>
             <li><a href="<?= base_url('login_ketua/index') ?>">LOGIN KETUA YAYASAN</a></li>
+            <li>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-dark pl-3 pr-3" data-toggle="modal" data-target="#exampleModal">Daftar Guru
+              </button>
+            </li>
           </ul>
           <hr class="garis">
         </nav><!-- #nav-menu-container -->
@@ -250,6 +261,21 @@
 
     AOS.init({
       once: true,
+    });
+  </script>
+
+  <script src="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+  <script src="<?= base_url() ?>/plugins/toastr/toastr.min.js"></script>
+  <script>
+    $(function() {
+
+      <?php if (session()->has("success")) { ?>
+        Swal.fire({
+          icon: 'success',
+          title: 'Mantap',
+          text: '<?= session("success") ?>'
+        })
+      <?php } ?>
     });
   </script>
 

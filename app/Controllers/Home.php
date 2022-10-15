@@ -7,7 +7,8 @@ class Home extends BaseController
     public function index()
     {
         $data['title'] = 'Home';
-        return view('home/home', $data);
+        echo view('home/home', $data);
+        echo view('admin/tambah-data/tambah_data');
     }
 
     public function blocked_admin()

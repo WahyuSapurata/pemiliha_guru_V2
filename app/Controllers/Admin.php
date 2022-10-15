@@ -28,6 +28,7 @@ class Admin extends BaseController
     }
 
 
+    // kriteria
     public function index()
     {
         if ($this->session->has('username') == "") {
@@ -116,6 +117,7 @@ class Admin extends BaseController
         return redirect()->to(base_url('admin/kriteria'));
     }
 
+    // alternative
     public function alternatif()
     {
         if ($this->session->has('username') == "") {
@@ -239,6 +241,7 @@ class Admin extends BaseController
     //     return $outputs;
     // }
 
+    // hasil perhitungan motode weight product
     public function hasil()
     {
         if ($this->session->has('username') == "") {
@@ -294,7 +297,12 @@ class Admin extends BaseController
             $hasil_v[$index][] = $jum_s[$index][0];
             $hasil_v[$index][] = $jum_s[$index][1] / $jum_v;
         }
-        array_multisort($hasil_v, SORT_ASC);
+        // dd($hasil_v);
+        usort($hasil_v, function ($item1, $item2) {
+            return $item2[1] <=> $item1[1];
+        });
+        // $price = array_column($hasil_v, '1');
+        // array_multisort($hasil_v, SORT_ASC, $price);
         $data['nilai_v'] = $hasil_v;
         // dd($data['nilai_v']);
         $data['nilai_s'] = $jum_s;
@@ -326,7 +334,6 @@ class Admin extends BaseController
         $data['data'] = $this->M_data->findAll();
         $data['title'] = 'Data Guru';
         echo view('admin/data_guru', $data);
-        echo view('admin/tambah-data/tambah_data', $data);
     }
     public function tambah_data()
     {
@@ -349,11 +356,11 @@ class Admin extends BaseController
                 'dokumen' => $newName,
             ]);
 
-            session()->setFlashdata("success", "Dokumen berhasil di tambah.");
-            return redirect()->to(base_url('admin/data_guru'));
+            session()->setFlashdata("success", "Data berhasil di kirim.");
+            return redirect()->to(base_url('home/index'));
         } else {
-            session()->setFlashdata("error", "Dokumen gagal di tambah.");
-            return redirect()->to(base_url('admin/data_guru'));
+            session()->setFlashdata("error", "Data berhasil di kirim.");
+            return redirect()->to(base_url('home/index'));
         }
     }
     public function hapus_data($id_data)
