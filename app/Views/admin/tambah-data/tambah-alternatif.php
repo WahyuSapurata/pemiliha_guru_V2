@@ -26,7 +26,13 @@
                     </div>
                     <div class="form-group">
                         <label><?= $kriteria[1]['nama_kriteria'] ?></label>
-                        <input type="text" name="pendidikan" class="form-control" required>
+                        <select id="coba" class="form-control">
+                            <option value="">--pilih pendidikan--</option>
+                            <option value="90">S1</option>
+                            <option value="95">S2</option>
+                            <option value="100">S3</option>
+                        </select>
+                        <input type="text" id="tes" value="" name="pendidikan" class="form-control mt-2" readonly>
                     </div>
                     <div class="form-group">
                         <label><?= $kriteria[2]['nama_kriteria'] ?></label>
@@ -45,3 +51,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(function() {
+        $('select[id=coba]').on('change', function() {
+            var divisiId = $(this).children("option:selected").val();
+            var tampilan = document.getElementById('tes').value = divisiId
+        });
+    });
+</script>

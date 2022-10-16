@@ -7,8 +7,9 @@ class Home extends BaseController
     public function index()
     {
         $data['title'] = 'Home';
+        $data['validation'] = \Config\Services::validation();
         echo view('home/home', $data);
-        echo view('admin/tambah-data/tambah_data');
+        echo view('admin/tambah-data/tambah_data', $data);
     }
 
     public function blocked_admin()

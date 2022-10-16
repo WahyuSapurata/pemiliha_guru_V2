@@ -135,7 +135,6 @@ class Admin extends BaseController
     }
     public function tambah_alternatif()
     {
-
         date_default_timezone_set('Asia/Makassar');
         $tanggal = strtotime(date("Y-m-d"));
         $tambah_tanggal = date('Y-m-d', strtotime("+30 day", $tanggal));
@@ -337,6 +336,17 @@ class Admin extends BaseController
     }
     public function tambah_data()
     {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Email harus di isi'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to(base_url('home/index'))->withInput()->with('validation', $validation);
+        }
         $periksa = $this->validate([
             'userfile' => [
                 'uploaded[userfile]',
